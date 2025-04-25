@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Appointment System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #F4F6F9;
+            color: #333333;
+        }
+
+        header {
+            text-align: center;
+            background-color: #00AEEF;
+            color: #FFFFFF;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+        }
+
+        section {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #FFFFFF;
+            color: #333333;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 1200px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            text-align: center;
+            color: #00AEEF;
+            margin-bottom: 20px;
+        }
+
+        .about-content,
+        .services-content,
+        .doctor-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .about-item,
+        .service-item,
+        .card {
+            background-color: #F4F6F9;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-item:hover,
+        .service-item:hover,
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-item h3,
+        .service-item h3,
+        .card h3 {
+            margin-top: 0;
+            color: #00AEEF;
+        }
+
+        .appointment {
+            padding: 20px;
+            background-color: #FFFFFF;
+            color: #333333;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .appointment h2 {
+            text-align: center;
+            color: #00AEEF;
+            margin-bottom: 20px;
+        }
+
+        .form-card {
+            background-color: #F4F6F9;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-card h3 {
+            margin-top: 0;
+            color: #00AEEF;
+        }
+
+        .appointment label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .appointment input,
+        .appointment select,
+        .appointment textarea,
+        .appointment button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        .appointment button {
+            background-color: #28C76F;
+            color: #FFFFFF;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .appointment button:hover {
+            background-color: #1FA055;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #00AEEF;
+            color: #FFFFFF;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .about-content,
+            .services-content,
+            .doctor-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .appointment {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            header p {
+                font-size: 0.9rem;
+            }
+
+            .appointment input,
+            .appointment select,
+            .appointment textarea,
+            .appointment button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Welcome to Our Hospital</h1>
+        <p>Your health is our priority</p>
+    </header>
+
+    <section class="about">
+        <h2>About Us</h2>
+        <p class="about-intro">
+            At our hospital, we are committed to providing exceptional healthcare services with a focus on trust, innovation, and patient satisfaction. Our mission is to make healthcare accessible and stress-free for everyone.
+        </p>
+        <div class="about-content">
+            <div class="about-item">
+                <h3>🎯 Mission-Focused</h3>
+                <p>We aim to make healthcare more accessible, convenient, and stress-free for everyone. By connecting patients to top hospitals and verified doctors, we ensure that your health is never delayed.</p>
+            </div>
+            <div class="about-item">
+                <h3>💖 Patient-Centric</h3>
+                <p>We prioritize your needs by offering clarity, control, and comfort in your healthcare journey. From finding the right doctor to booking appointments, we put you first every step of the way.</p>
+            </div>
+            <div class="about-item">
+                <h3>💻 Technology-Driven</h3>
+                <p>Our platform leverages cutting-edge technology to bridge the gap between patients and healthcare providers. With real-time appointment booking, telemedicine options, and smart reminders, we keep your care on track.</p>
+            </div>
+            <div class="about-item">
+                <h3>🤝 Trust and Transparency</h3>
+                <p>We partner only with certified hospitals and licensed doctors to ensure trust and transparency. Verified reviews, clear information, and dependable support are at the core of our service.</p>
+            </div>
+            <div class="about-item">
+                <h3>😊 Friendly & Approachable</h3>
+                <p>We simplify healthcare for you. Whether you need a check-up, a second opinion, or follow-up care, we make it easy to find and book the right care at the right time.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="services-content">
+            <div class="service-item">
+                <h3>🩺 General Medicine</h3>
+                <p>Comprehensive care for all your general health needs, from routine check-ups to managing chronic conditions.</p>
+            </div>
+            <div class="service-item">
+                <h3>❤️ Cardiology</h3>
+                <p>Expert care for heart-related conditions, including diagnostics, treatment, and prevention.</p>
+            </div>
+            <div class="service-item">
+                <h3>🦴 Orthopedics</h3>
+                <p>Specialized treatment for bone, joint, and muscle issues to help you stay active and pain-free.</p>
+            </div>
+            <div class="service-item">
+                <h3>👶 Pediatrics</h3>
+                <p>Dedicated care for children, ensuring their health and well-being at every stage of growth.</p>
+            </div>
+            <div class="service-item">
+                <h3>🚑 Emergency Care</h3>
+                <p>24/7 emergency services to provide immediate medical attention when you need it most.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="appointment">
+        <h2>Book an Appointment</h2>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <div class="form-card">
+                <h3>Personal Information</h3>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="Enter your age" required>
+            </div>
+
+            <div class="form-card">
+                <h3>Contact Information</h3>
+                <label for="phone">Contact Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                
+                <label for="email">Email Address (Optional):</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+            </div>
+
+            <div class="form-card">
+                <h3>Appointment Details</h3>
+                <label for="department">Select Department / Specialty:</label>
+                <select id="department" name="department" required>
+                    <option value="general">General Medicine</option>
+                    <option value="cardiology">Cardiology</option>
+                    <option value="orthopedics">Orthopedics</option>
+                    <option value="pediatrics">Pediatrics</option>
+                    <option value="dermatology">Dermatology</option>
+                    <option value="neurology">Neurology</option>
+                    <option value="gynecology">Gynecology</option>
+                    <option value="ophthalmology">Ophthalmology</option>
+                </select>
+                
+                <label for="doctor">Choose Doctor:</label>
+                <select id="doctor" name="doctor" required>
+                    <option value="aryan-mehta">Dr. Aryan Mehta (Cardiologist)</option>
+                    <option value="priya-nair">Dr. Priya Nair (Pediatrician)</option>
+                    <option value="rohan-kulkarni">Dr. Rohan Kulkarni (Orthopedic Surgeon)</option>
+                    <option value="neha-verma">Dr. Neha Verma (Dermatologist)</option>
+                    <option value="vikram-iyer">Dr. Vikram Iyer (Neurologist)</option>
+                    <option value="sakshi-sharma">Dr. Sakshi Sharma (Gynecologist)</option>
+                    <option value="sameer-patil">Dr. Sameer Patil (General Physician)</option>
+                    <option value="ananya-rao">Dr. Ananya Rao (Ophthalmologist)</option>
+                </select>
+                
+                <label for="date">Appointment Date:</label>
+                <input type="date" id="date" name="date" required>
+                
+                <label for="time">Preferred Time Slot:</label>
+                <select id="time" name="time" required>
+                    <option value="10-10:30">10:00 AM – 10:30 AM</option>
+                    <option value="10:30-11">10:30 AM – 11:00 AM</option>
+                    <option value="11-11:30">11:00 AM – 11:30 AM</option>
+                    <option value="11:30-12">11:30 AM – 12:00 PM</option>
+                    <option value="2-2:30">2:00 PM – 2:30 PM</option>
+                    <option value="2:30-3">2:30 PM – 3:00 PM</option>
+                </select>
+            </div>
+
+            <div class="form-card">
+                <h3>Additional Information</h3>
+                <label>Patient Type:</label>
+                <div>
+                    <input type="radio" id="new-patient" name="patient-type" value="new" required>
+                    <label for="new-patient">New Patient</label>
+                </div>
+                <div>
+                    <input type="radio" id="existing-patient" name="patient-type" value="existing" required>
+                    <label for="existing-patient">Existing Patient</label>
+                </div>
+                
+                <label for="notes">Additional Notes / Reason for Visit (Optional):</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="Enter any additional details..."></textarea>
+                
+                <label for="reports">Upload Previous Reports (Optional):</label>
+                <input type="file" id="reports" name="reports" accept=".pdf,.jpg,.png">
+            </div>
+
+            <button type="submit">Book Appointment</button>
+        </form>
+    </section>
+
+    <section class="doctors">
+        <h2>Our Doctors</h2>
+        <div class="doctor-cards">
+            <div class="card">
+                <h3>Dr. Aryan Mehta</h3>
+                <p><strong>Specialization:</strong> Cardiologist</p>
+                <p><strong>Experience:</strong> 12+ years</p>
+                <p><strong>Availability:</strong> Mon – Fri (10:00 AM – 3:00 PM)</p>
+                <p><strong>Contact:</strong> aryanmehta@caremed.com</p>
+                <p><strong>Hospital:</strong> CareMed Multispeciality, Mumbai</p>
+            </div>
+            <div class="card">
+                <h3>Dr. Priya Nair</h3>
+                <p><strong>Specialization:</strong> Pediatrician</p>
+                <p><strong>Experience:</strong> 8 years</p>
+                <p><strong>Availability:</strong> Mon – Sat (9:00 AM – 1:00 PM)</p>
+                <p><strong>Contact:</strong> priyanair@healthfirst.in</p>
+                <p><strong>Hospital:</strong> HealthFirst Children's Hospital, Pune</p>
+            </div>
+            <div class="card">
+                <h3>Dr. Rohan Kulkarni</h3>
+                <p><strong>Specialization:</strong> Orthopedic Surgeon</p>
+                <p><strong>Experience:</strong> 10 years</p>
+                <p><strong>Availability:</strong> Mon – Fri (11:00 AM – 4:00 PM)</p>
+                <p><strong>Contact:</strong> rohan.k@spinecare.org</p>
+                <p><strong>Hospital:</strong> SpineCare Hospital, Nagpur</p>
+            </div>
+            <div class="card">
+                <h3>Dr. Neha Verma</h3>
+                <p><strong>Specialization:</strong> Dermatologist</p>
+                <p><strong>Experience:</strong> 6 years</p>
+                <p><strong>Availability:</strong> Tue – Sat (1:00 PM – 6:00 PM)</p>
+                <p><strong>Contact:</strong> drnehav@gloskinclinic.com</p>
+                <p><strong>Hospital:</strong> GloSkin Dermatology, Bengaluru</p>
+            </div>
+            <div class="card">
+                <h3>Dr. Vikram Iyer</h3>
+                <p><strong>Specialization:</strong> Neurologist</p>
+                <p><strong>Experience:</strong> 15 years</p>
+                <p><strong>Availability:</strong> Mon – Thu (10:00 AM – 2:00 PM)</p>
+                <p><strong>Contact:</strong> vikramiyer@neurohub.in</p>
+                <p><strong>Hospital:</strong> NeuroHub Institute, Hyderabad</p>
+            </div>
+            <div class="card">
+                <h3>Dr. Sakshi Sharma</h3>
+                <p><strong>Specialization:</strong> Gynecologist</p>
+                <p><strong>Experience:</strong> 9 years</p>
+                <p><strong>Availability:</strong> Mon – Fri (2:00 PM – 6:00 PM)</p>
+                <p><strong>Contact:</strong> sakshi.s@mothercare.org</p>
+                <p><strong>Hospital:</strong> MotherCare Women’s Clinic, Delhi</p>
+            </div>
+            <div class="card">
+                <h3>Dr. Sameer Patil</h3>
+                <p><strong>Specialization:</strong> General Physician</p>
+                <p><strong>Experience:</strong> 7 years</p>
+                <p><strong>Availability:</strong> Mon – Sat (10:00 AM – 8:00 PM)</p>
+                <p><strong>Contact:</strong> sam.patil@cityclinic.com</p>
+                <p><strong>Hospital:</strong> City Clinic, Nashik</p>
+            </div>
+            <div class="card">
+                <h3>Dr. Ananya Rao</h3>
+                <p><strong>Specialization:</strong> Ophthalmologist</p>
+                <p><strong>Experience:</strong> 11 years</p>
+                <p><strong>Availability:</strong> Tue – Sat (9:30 AM – 2:30 PM)</p>
+                <p><strong>Contact:</strong> ananyarao@visionspecialist.com</p>
+                <p><strong>Hospital:</strong> Vision Specialist Center, Ahmedabad</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <!-- Footer content can go here if needed -->
+    </footer>
+
+    <script>
+        // JavaScript to handle form submission
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const gender = document.getElementById('gender').value;
+            const age = document.getElementById('age').value;
+            const phone = document.getElementById('phone').value;
+            const department = document.getElementById('department').value;
+            const doctor = document.getElementById('doctor').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            // Validate required fields
+            if (!name || !gender || !age || !phone || !department || !doctor || !date || !time) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Display confirmation message
+            alert(`Appointment booked successfully!\n\nDetails:\nName: ${name}\nGender: ${gender}\nAge: ${age}\nPhone: ${phone}\nDepartment: ${department}\nDoctor: ${doctor}\nDate: ${date}\nTime: ${time}`);
+        });
+    </script>
+</body>
+</html>
